@@ -1,0 +1,5 @@
+profile: function-aws
+defaultPackage: community-feedback
+---
+testFramework: spek
+sourceLanguage: kotlin
