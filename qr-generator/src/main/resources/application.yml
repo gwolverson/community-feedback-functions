@@ -1,3 +1,5 @@
 micronaut:
     function:
         name: qr-generator
+    server:
+        port: 8082

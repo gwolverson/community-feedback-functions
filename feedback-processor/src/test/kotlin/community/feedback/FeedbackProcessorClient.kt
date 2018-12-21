@@ -1,6 +1,8 @@
-package community-feedback
+package community.feedback
 
+import community.feedback.model.FeedbackRequest
 import io.micronaut.function.client.FunctionClient
+import io.micronaut.http.annotation.Body
 import io.reactivex.Single
 import javax.inject.Named
 
@@ -8,6 +10,6 @@ import javax.inject.Named
 interface FeedbackProcessorClient {
 
     @Named("feedback-processor")
-    fun index(): Single<String>
+    fun apply(@Body feedbackRequest: FeedbackRequest): Single<String>
 
 }

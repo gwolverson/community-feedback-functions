@@ -1,5 +1,5 @@
-package community-feedback
-
+import community.feedback.FeedbackProcessorClient
+import community.feedback.model.FeedbackRequest
 import io.micronaut.context.ApplicationContext
 import io.micronaut.runtime.server.EmbeddedServer
 import org.jetbrains.spek.api.Spek
@@ -14,8 +14,10 @@ class FeedbackProcessorFunctionTest: Spek({
         val server = ApplicationContext.run(EmbeddedServer::class.java)
         val client = server.applicationContext.getBean(FeedbackProcessorClient::class.java)
 
-        it("should return 'feedback-processor'") {
-            assertEquals(client.index().blockingGet(), "feedback-processor")
+        it("should return 'success'") {
+            val feedbackRequest = FeedbackRequest(name = "Bob")
+            assertEquals(client.apply(feedbackRequest).blockingGet(), "Success")
+            println(client.apply(feedbackRequest).blockingGet())
         }
 
         afterGroup {

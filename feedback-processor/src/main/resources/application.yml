@@ -1,3 +1,7 @@
 micronaut:
     function:
         name: feedback-processor
+    server:
+        port: 8081
+        cors:
+            enabled: true
